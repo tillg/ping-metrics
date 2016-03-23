@@ -11,3 +11,5 @@ Stack used:
 Includes:
 - All scripts
 - A guide to set up a complete tool chain including the virtual machines
+
+!(pic)[https://www.ons.gov.uk/businessindustryandtrade/retailindustry/timeseries/jo5l/linechartimage]
