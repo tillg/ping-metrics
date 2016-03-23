@@ -12,4 +12,5 @@ Includes:
 - All scripts
 - A guide to set up a complete tool chain including the virtual machines
 
-![pic](http://www.hko.gov.hk/wxinfo/ts/tklspd.png)
+Literature 
+- [Grafana and ping](https://hveem.no/visualizing-latency-variance-with-grafana)
