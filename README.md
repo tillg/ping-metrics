@@ -11,6 +11,7 @@ Stack used:
 Includes:
 - All scripts
 - A guide to set up a complete tool chain including the virtual machines
+- A test/demo environment to show what it looks like
 
 Literature 
 - [Grafana and ping](https://hveem.no/visualizing-latency-variance-with-grafana)
