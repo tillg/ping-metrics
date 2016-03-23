@@ -12,4 +12,4 @@ Includes:
 - All scripts
 - A guide to set up a complete tool chain including the virtual machines
 
-[http://www.hko.gov.hk/wxinfo/ts/tklspd.png]
+![pic](http://www.hko.gov.hk/wxinfo/ts/tklspd.png)
