@@ -3,7 +3,8 @@
 A complete setup to measure ping times over longer periods (days, months, years) and visualize them. By "complete setup" we mean virtual machines including scripts to create them, spin them up, provision them. 
 
 Stack used:
-- statsd 
+- Probably the [ping-statsd-agent](https://github.com/garo/ping-statsd-agent)
+- [statsd](https://github.com/etsy/statsd)
 - Telegraf
 - InfluxDB
 - Grafana
@@ -14,4 +15,4 @@ Includes:
 - A test/demo environment to show what it looks like
 
 Literature 
-- [Grafana and ping](https://hveem.no/visualizing-latency-variance-with-grafana)
+- [Grafana and ping](https://hveem.no/visualizing-latency-variance-with-grafana): This guy did something similar, although his setup is all on one box. 
