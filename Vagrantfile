@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
       v.cpus = 1
     end
     machine.vm.provision "ansible" do |ansible|
-      ansible.playbook = "install-influxdb.yml"
+      ansible.playbook = "influx-grafana.yml"
       ansible.sudo = true
     end
   end
