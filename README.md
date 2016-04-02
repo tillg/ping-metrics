@@ -3,14 +3,15 @@
 A complete setup to measure ping times over longer periods (days, months, years) and visualize them. By "complete setup" we mean virtual machines including scripts to create them, spin them up, provision them. 
 
 #Stack used
-- Probably the [ping-statsd-agent](https://github.com/garo/ping-statsd-agent)
+- [ping-statsd-agent](https://github.com/garo/ping-statsd-agent)
 - [statsd](https://github.com/etsy/statsd)
-- Telegraf
+- [Telegraf](https://github.com/influxdata/telegraf)
 - InfluxDB
 - Grafana
 
-Those things should work together as follows:
-![ping-metrics-overview](ping-metrics-overview.png)
+Those things work together as follows:
+![ping-metrics-overview](https://www.lucidchart.com/publicSegments/view/da16a7d3-2adb-4094-b514-fdc8fde89fcf/image.png)
+
 
 #Includes
 The repo should contain (one day):
@@ -18,7 +19,16 @@ The repo should contain (one day):
 - A guide to set up a complete tool chain including the virtual machines
 - A test/demo environment to show what it looks like
 
-#Install
+#Install & Run
+##Pre requisites
+- Have Vagrant & Virtualbox installed
+
+Then you can go
+
+- `clone <this repo>`
+- `cd <into the repo u just cloned>`
+- `vagrant up` - Now 2 VMs should be created and installed. 
+    In case it fails, it often helps to re-run a `vagrant provision`, especially for the GraphServer. The command would then be `vagrant provision graphserver`
 
 #Literature 
 - [Getting Started with Sending StatsD Metrics to Telegraf & InfluxDB](https://influxdata.com/blog/getting-started-with-sending-statsd-metrics-to-telegraf-influxdb/): A good explanation of how things work and should be configured
