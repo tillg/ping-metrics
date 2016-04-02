@@ -1,0 +1,11 @@
+{
+  "name": "ping-statsd-agent",
+  "version": "0.0.01",
+  "description": "Pings remote hosts and reports results to statsd",
+  "main": "main.js",
+  "dependencies": {
+    "net-ping": "1.1.x",
+    "statsd-client" : "0.1.0",
+    "microtime" : "*"
+  }
+}

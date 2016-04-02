@@ -1,0 +1,19 @@
+{
+	"statsd" : {
+		"host" : "statsite-8125",
+		"port" : 8125,
+		"prefix" : "test.",
+		"debug" : true
+	},
+	"hosts" : [
+		{
+			"host":"github.com"
+		},
+		{
+			"host":"mgm-tp.com"
+		},
+		{
+			"host":"google.com"
+		}
+	]
+}
