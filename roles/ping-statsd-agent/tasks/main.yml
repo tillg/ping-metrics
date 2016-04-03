@@ -1,5 +1,24 @@
 ---
 
+- name: Check if npm is installed
+  command: 'npm --version > /dev/null 2>&1'
+  register: npm_check
+  ignore_errors: True
+
+- name: Install npm
+  apt: name=npm
+  when: npm_check|failed
+
+- name: Get ping-statsd-agent from Github
+  git: repo=https://github.com/garo/ping-statsd-agent.git dest=/srv/checkout 
+
+- name: Build it with npm
+  command: npm install chdir=/srv/checkout
+
+- name: Configure hosts to be pinged
+  template: src=opt/statsd/local_config.js.j2 dest=/opt/statsd/local_config.js owner=node group=node mode=0444
+
+
 - name: Install Statsd Dependencies for Redhat
   yum: "name={{ item }} state=present"
   with_items:
