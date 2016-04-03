@@ -10,6 +10,7 @@ A complete setup to measure ping times over longer periods (days, months, years)
 - Grafana
 
 Those things work together as follows:
+
 ![ping-metrics-overview](https://www.lucidchart.com/publicSegments/view/da16a7d3-2adb-4094-b514-fdc8fde89fcf/image.png)
 
 

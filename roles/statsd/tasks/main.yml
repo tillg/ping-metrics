@@ -1,0 +1,60 @@
+---
+
+- name: Install Statsd Dependencies for Redhat
+  yum: "name={{ item }} state=present"
+  with_items:
+    - nodejs
+    - git
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Install Statsd Dependencies for Debian
+  apt: "name={{ item }} update_cache=yes"
+  with_items:
+    - nodejs
+    - git
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Create node user
+  user: name=node state=present shell=/bin/false system=yes
+
+- name: Create log directory
+  file: path=/var/log/statsd owner=node group=node state=directory
+
+- name: Install statsd from GitHub
+  git: "repo=https://github.com/etsy/statsd.git dest=/opt/statsd update=no version={{ statsd_version }}"
+
+- name: Configure statsd
+  template: src=opt/statsd/local_config.js.j2 dest=/opt/statsd/local_config.js owner=node group=node mode=0444
+
+- name: Get directory permissions
+  stat: path=/opt/statsd
+  register: permissions
+
+- name: Set file permissions
+  command: /bin/chown -R node:node /opt/statsd
+  when: permissions.stat.pw_name != 'node'
+
+- name: Create statsd init.d script
+  template: src="etc/init/statsd.{{ ansible_os_family }}.j2" dest=/etc/init.d/statsd owner=root group=root mode=0755
+
+- name: Check if npm is installed
+  command: 'npm --version > /dev/null 2>&1'
+  register: npm_check
+  ignore_errors: True
+
+- name: Install npm
+  yum: name=npm
+  when: librato_email is defined and ansible_pkg_mgr == 'yum' and npm_check|failed
+
+- name: Install npm
+  apt: name=npm
+  when: librato_email is defined and ansible_pkg_mgr == 'apt' and npm_check|failed
+
+- name: Install librato plugin
+  command: npm install statsd-librato-backend chdir=/opt/statsd
+  sudo: yes
+  sudo_user: node
+  when: librato_email is defined
+
+- name: Start statsd
+  service: name=statsd state=running enabled=yes

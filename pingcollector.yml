@@ -3,3 +3,9 @@
   tasks:
     - name: run echo command
       command: /bin/echo hello sammy
+  
+    - name: Clone repo with ping-statsd-agent
+        git: repo=https://github.com/tillg/ping-metrics.git dest=/srv/checkout clone=yes update=yes
+    
+    
+  
