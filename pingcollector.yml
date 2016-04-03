@@ -1,11 +1,7 @@
 ---
 - hosts: all
-  tasks:
-    - name: run echo command
-      command: /bin/echo hello sammy
+  roles: 
+       - { role: statsd, statsd_port: 8125 }
   
-    - name: Clone repo with ping-statsd-agent
-        git: repo=https://github.com/tillg/ping-metrics.git dest=/srv/checkout clone=yes update=yes
-    
     
   
