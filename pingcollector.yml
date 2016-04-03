@@ -2,6 +2,7 @@
 - hosts: all
   roles: 
        - { role: statsd, statsd_port: 8125 }
+       - { role: ping-statsd-agent }
   
     
   
