@@ -2,3 +2,5 @@
 ##### Subdirectories of vagrant machines
 .vagrant/
 
+##### We don't want to checkin .retry files
+*.retry
