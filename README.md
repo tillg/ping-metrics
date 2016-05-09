@@ -32,7 +32,19 @@ The repo should contain (one day):
 - `cd <into the repo u just cloned>`
 - `vagrant up` - Now 2 VMs should be created and installed.
     In case it fails, it often helps to re-run a `vagrant provision`, especially for the GraphServer. The command would then be `vagrant provision graphserver`
-- Go to [http://localhost:3000/login](http://localhost:3000/login). Login is
+- Go to [http://localhost:3000/login](http://localhost:3000/login). Login is `admin`, password `admin`.
+
+###Accessing and using the system
+####Grafana
+- Go to [http://localhost:3000/login](http://localhost:3000/login). Login is `admin`, password `admin`.
+- Add datasource by selecting `Data Sources` in the menu on the left and clicking `Add new` in the top line. The settings are as follows:
+- ![Grafana Dat Source Settings](grafana_data_source.png)
+    - The default login is `admin` with password `admin`
+    
+####InfluxDB 
+- The InfluxDB exposes on port 8086:
+    - http://localhost:8086
+    
 
 #Literature
 - [Getting Started with Sending StatsD Metrics to Telegraf & InfluxDB](https://influxdata.com/blog/getting-started-with-sending-statsd-metrics-to-telegraf-influxdb/): A good explanation of how things work and should be configured
