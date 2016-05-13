@@ -5,10 +5,8 @@ Simple daemon for easy stats aggregation
 
 [https://github.com/etsy/statsd](https://github.com/etsy/statsd)
 
-
 Requirements
 ------------
-
 
 
 
